@@ -13,7 +13,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-n+__$4f0qkr1i_^$5!_kt5=x7fp8kr37fym2)(5cpo-o!y^2e7'
 
 # Debug toggle: True locally, False on Render
-DEBUG = os.environ.get("DJANGO_DEBUG", "True") == "True"
+DEBUG = 'False'
 
 ALLOWED_HOSTS = ['*']
 

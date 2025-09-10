@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+{% load static %}   <!-- Add this line -->
+
+{% block title %}Home – Benzo Portfolio{% endblock %}
+
+{% block content %}
+<!-- Hero Section -->
+<section 
+    class="relative text-center py-28 bg-gradient-to-r from-blue-600/70 to-indigo-500/70 animate-fadeIn bg-cover bg-center"
+    style="background-image: url('{% static "images/kojo.jpg" %}');">
+
+
+    <!-- Overlay (for dark effect if needed) -->
+    <div class="absolute inset-0 bg-black/40"></div>
+
+    <div class="relative max-w-3xl mx-auto text-white px-4">
+        <!-- Heading -->
+        <h1 class="text-5xl md:text-6xl font-extrabold mb-4 drop-shadow-lg animate-fadeIn">
+      Benzo CEO CONCEPT
+        </h1>
+
+        <!-- Subtitle -->
+        <p class="text-xl md:text-2xl mb-8 drop-shadow-md animate-slideUp font-extrabold">
+            Fullstack Developer & Tech Enthusiast
+        </p>
+
+        <!-- Call to Action -->
+        <a href="{% url 'contact' %}" 
+           class="inline-block bg-white text-blue-600 font-semibold px-8 py-4 rounded-2xl shadow-xl hover:scale-105 hover:bg-gray-100 transition transform animate-slideUp">
+            Get in Touch
+        </a>
+    </div>
+</section>
+
+<!-- Services Cards Section -->
+<section class="mt-24 grid md:grid-cols-3 gap-12 text-center px-4">
+    <div class="p-8 bg-white rounded-3xl shadow-2xl hover:scale-105 hover:shadow-3xl transition transform animate-slideUp">
+        <h3 class="font-extrabold text-2xl mb-4 text-blue-600">Web Development</h3>
+        <p class="text-gray-700 leading-relaxed">Build dynamic and responsive fullstack web applications using Django, Node.js, and React.</p>
+    </div>
+    <div class="p-8 bg-white rounded-3xl shadow-2xl hover:scale-105 hover:shadow-3xl transition transform animate-slideUp animate-delay-200">
+        <h3 class="font-extrabold text-2xl mb-4 text-indigo-600">UI/UX Design</h3>
+        <p class="text-gray-700 leading-relaxed">Clean, modern, and responsive designs crafted with Tailwind CSS and best practices in user experience.</p>
+    </div>
+    <div class="p-8 bg-white rounded-3xl shadow-2xl hover:scale-105 hover:shadow-3xl transition transform animate-slideUp animate-delay-400">
+        <h3 class="font-extrabold text-2xl mb-4 text-purple-600">Consulting</h3>
+        <p class="text-gray-700 leading-relaxed">Strategic technical consulting to help startups and businesses grow online efficiently and effectively.</p>
+    </div>
+</section>
+
+<!-- Optional Call-to-Action Section -->
+<section class="mt-24 py-20 bg-gradient-to-r from-indigo-500 to-purple-600 rounded-3xl text-center text-white animate-fadeIn">
+    <h2 class="text-4xl md:text-5xl font-bold mb-6 drop-shadow-lg">Let’s Build Something Amazing Together</h2>
+    <p class="text-lg md:text-xl mb-8 drop-shadow-md">I specialize in crafting solutions that combine performance, design, and functionality.</p>
+    <a href="{% url 'contact' %}" class="inline-block bg-white text-indigo-600 font-bold px-10 py-4 rounded-2xl shadow-xl hover:scale-105 hover:bg-gray-100 transition transform">
+        Hire Me
+    </a>
+</section>
+{% endblock %}

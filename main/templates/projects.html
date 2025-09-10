@@ -1,0 +1,112 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %}Projects – Benzo Portfolio{% endblock %}
+
+{% block content %}
+
+<section class="py-20 bg-gray-50 animate-fadeIn">
+  <div class="max-w-6xl mx-auto px-4">
+    <h2
+      class="text-4xl font-extrabold mb-12 text-center text-gray-900 animate-slideUp"
+    >
+      My Projects
+    </h2>
+
+    <!-- Carousel -->
+    <div
+      x-data="{ current: 0, projects: 5 }"
+      class="relative w-full rounded-3xl shadow-2xl overflow-hidden"
+    >
+      <template x-for="i in projects" :key="i">
+        <div
+          x-show="current === i-1"
+          class="transition-all duration-700 transform animate-slideUp"
+        >
+          <img
+            src="{% static 'images/lat.png' %}"
+            alt="Image 1"
+            class="w-full h-80 md:h-96 object-cover rounded-t-3xl"
+          />
+          <h3 class="text-2xl font-bold mb-2 text-black-600 p-2">
+            {{ i }} AutoMax – Drive Your Dream
+          </h3>
+          <p class="text-gray-700 leading-relaxed">
+            {{ i }}AutoMax is your ultimate destination for discovering,
+            comparing, and purchasing cars. From luxury rides to affordable
+            daily drivers, explore detailed specifications, high-quality images,
+            and trusted reviews. Find the perfect car that matches your
+            lifestyle, all in one place.
+          </p>
+          <img
+            src="{% static 'images/zozo.gif' %}"
+            alt="Image 2"
+            class="w-full h-80 md:h-96 object-cover rounded-t-3xl"
+          />
+          <h3 class="text-2xl font-bold mb-2 text-black-600 p-2">
+            {{ i }} Teste Temple
+          </h3>
+          <p class="text-gray-700 leading-relaxed">
+            {{ i }}Teste Temple brings you a modern dining experience with a
+            fusion of flavors from around the world. Browse our menu, reserve a
+            table online, and explore our chef’s special dishes crafted with
+            love. Whether for family dinners, casual hangouts, or fine dining,
+            we make every meal unforgettable.
+          </p>
+          <img
+            src="{% static 'images/oke.png' %}"
+            alt="Image 3"
+            class="w-full h-80 md:h-96 object-cover rounded-t-3xl"
+          />
+          <h3 class="text-2xl font-bold mb-2 text-black-600 p-2">
+            {{ i }} Avenix Church
+          </h3>
+          <p class="text-gray-700 leading-relaxed">
+            {{ i }}..A place of worship, fellowship, and spiritual growth,
+            rooted in God’s Word and guided by the Holy Spirit.
+          </p>
+
+          {% comment %}
+          <div class="p-6 bg-white rounded-b-3xl">
+            <h3 class="text-2xl font-bold mb-2 text-blue-600">
+              Project Title {{ i }}Avenix Church
+            </h3>
+            <p class="text-gray-700 leading-relaxed">
+              This is a description of Project {{ i }}.A place of worship,
+              fellowship, and spiritual growth, rooted in God’s Word and guided
+              by the Holy Spirit.
+            </p>
+          </div>
+          {% endcomment %}
+        </div>
+      </template>
+
+      <!-- Navigation -->
+      <button
+        @click="current = (current === 0) ? projects-1 : current-1"
+        class="absolute top-1/2 left-4 transform -translate-y-1/2 bg-blue-600 text-white px-4 py-2 rounded-full shadow hover:bg-blue-700 transition"
+      >
+        ‹
+      </button>
+      <button
+        @click="current = (current === projects-1) ? 0 : current+1"
+        class="absolute top-1/2 right-4 transform -translate-y-1/2 bg-blue-600 text-white px-4 py-2 rounded-full shadow hover:bg-blue-700 transition"
+      >
+        ›
+      </button>
+    </div>
+
+    <!-- Optional Dots Navigation -->
+    <div class="flex justify-center mt-6 space-x-3">
+      <template x-for="i in projects" :key="i">
+        <button
+          @click="current = i-1"
+          :class="{'bg-blue-600': current === i-1, 'bg-gray-300': current !== i-1}"
+          class="w-3 h-3 rounded-full transition"
+        ></button>
+      </template>
+    </div>
+  </div>
+</section>
+{% endblock %}
